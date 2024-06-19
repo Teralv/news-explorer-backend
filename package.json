@@ -1,0 +1,17 @@
+{
+  "name": "news-explorer-backend",
+  "version": "1.0.0",
+  "description": "Proyecto final backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "author": "Teralv",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1"
+  }
+}
