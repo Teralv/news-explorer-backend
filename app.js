@@ -1,22 +1,12 @@
-/* eslint-disable */
-import express, {
-   json,
-   urlencoded
-  } from 'express';
+import express, { json, urlencoded } from 'express';
 import  connect  from 'mongoose';
 import helmet from 'helmet';
 import cors from 'cors';
 import  errors  from 'celebrate'; // Celebrate error handler
-import {
-  error as _error,
-  info
-} from './middleware/logger';
+import { error as _error, info } from './middleware/logger';
 import apiRateLimiter from './Utils/rateLimiter';
 import  errorHandler  from './middleware/handleErrors';
-import {
-  mongoUri,
-  port
-} from './Utils/config';
+import { mongoUri, port } from './Utils/config';
 import routes from './Routes/index';
 
 require('dotenv').config(); // This will load .env file if it exists
