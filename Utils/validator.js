@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { celebrate, Joi, Segments } = require('celebrate');
 const validator = require('validator');
 

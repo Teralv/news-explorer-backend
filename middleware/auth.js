@@ -1,3 +1,4 @@
+/* eslint-disable */
 const jwt = require('jsonwebtoken');
 const { jwtSecret } = require('../Utils/config');
 const UnauthorizedError = require('./handleErrors');

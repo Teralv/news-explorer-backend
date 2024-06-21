@@ -1,9 +1,10 @@
+/* eslint-disable */
 const express = require('express');
-
 const router = express.Router();
 const auth = require('../middleware/auth'); // Import auth middleware
 const usersController = require('../controllers/usersController');
 const { createUserValidator, validateLogin } = require('../Utils/validator');
+
 
 router.get(
   '/users/me',

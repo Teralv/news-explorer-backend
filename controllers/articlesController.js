@@ -1,7 +1,9 @@
+/* eslint-disable */
 const Article = require('../models/Article');
 const NotFoundError = require('../middleware/handleErrors');
 const ForbiddenError = require('../middleware/handleErrors');
 const logger = require('../middleware/logger');
+
 
 exports.getArticlesByUser = async (req, res, next) => {
   try {

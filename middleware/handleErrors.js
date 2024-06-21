@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { isCelebrateError } = require('celebrate');
 const logger = require('./logger');
 

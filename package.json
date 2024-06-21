@@ -12,6 +12,7 @@
   "author": "Teralv",
   "license": "ISC",
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^9.5.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
@@ -20,6 +21,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "celebrate": "^15.0.3",
+    "config": "^3.3.11",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

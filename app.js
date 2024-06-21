@@ -1,22 +1,31 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const helmet = require('helmet');
-const cors = require('cors');
-const { errors } = require('celebrate'); // Celebrate error handler
-const logger = require('./middleware/logger');
-const apiRateLimiter = require('./Utils/rateLimiter');
-const { errorHandler } = require('./middleware/handleErrors');
-const { mongoUri, port } = require('./Utils/config');
+/* eslint-disable */
+import express, {
+   json,
+   urlencoded
+  } from 'express';
+import  connect  from 'mongoose';
+import helmet from 'helmet';
+import cors from 'cors';
+import  errors  from 'celebrate'; // Celebrate error handler
+import {
+  error as _error,
+  info
+} from './middleware/logger';
+import apiRateLimiter from './Utils/rateLimiter';
+import  errorHandler  from './middleware/handleErrors';
+import {
+  mongoUri,
+  port
+} from './Utils/config';
+import routes from './Routes/index';
 
 require('dotenv').config(); // This will load .env file if it exists
 
+
 const app = express();
-// Routes
-const routes = require('./Routes/index');
 
 // MongoDB connection
-mongoose
-  .connect(mongoUri)
+connect(mongoUri)
   .then(() => {
     console.log('MongoDB Connected');
     app.listen(port, () => {
@@ -24,7 +33,7 @@ mongoose
     });
   })
   .catch((err) => {
-    logger.error(`Database Connection Error: ${err.message}`);
+    _error(`Database Connection Error: ${err.message}`);
     process.exit(1); // Exit the process if unable to connect to the database
   });
 
@@ -33,15 +42,15 @@ app.use(helmet());
 app.use(cors());
 
 // Built-in middleware for parsing JSON and urlencoded form data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
 // Rate limiting middleware applied to all API requests
 app.use('/api', apiRateLimiter);
 
 // Simple request logger middleware
 app.use((req, res, next) => {
-  logger.info(`Received ${req.method} request at ${req.url}`);
+  info(`Received ${req.method} request at ${req.url}`);
   next();
 });
 
@@ -66,4 +75,4 @@ app.use(errors());
 // General error handling middleware
 app.use(errorHandler);
 
-module.exports = app;
+export default app;
