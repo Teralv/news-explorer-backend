@@ -50,5 +50,9 @@ export default [...compat.extends('eslint:recommended', 'airbnb-base'), {
     'no-console': 'off',
 
     'eol-last': 'off',
+
+    'max-classes-per-file': 'off',
+
+    'operator-linebreak': 'off',
   },
 }];

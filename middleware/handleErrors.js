@@ -1,4 +1,3 @@
-/* eslint-disable */
 const { isCelebrateError } = require('celebrate');
 const logger = require('./logger');
 
@@ -82,5 +81,5 @@ const errorHandler = (err, req, res, next) => {
 
 module.exports = {
   errorHandler,
-  UnauthorizedError
+  UnauthorizedError,
 };
