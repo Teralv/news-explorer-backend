@@ -30,7 +30,7 @@ class NotFoundError extends Error {
 }
 
 class ServerError extends Error {
-  constructor(message = 'Internal Server Error') {
+  constructor(message = 'Internal Server Error!') {
     super(message);
     this.statusCode = 500;
   }
@@ -76,7 +76,7 @@ const errorHandler = (err, req, res, next) => {
 
   // For unhandled errors, log them and respond with 500 Internal Server Error
   logger.error(`Unhandled Error: ${logMessage}`); // Log unhandled errors to error.log
-  return res.status(500).json({ message: 'Internal Server Error' });
+  return res.status(500).send('Internal Server Error!!' );
 };
 
 module.exports = {
