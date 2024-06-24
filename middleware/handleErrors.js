@@ -81,5 +81,10 @@ const errorHandler = (err, req, res, next) => {
 
 module.exports = {
   errorHandler,
+  BadRequestError,
+  ConflictError,
+  ForbiddenError,
+  NotFoundError,
+  ServerError,
   UnauthorizedError,
 };

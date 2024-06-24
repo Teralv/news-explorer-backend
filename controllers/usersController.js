@@ -1,13 +1,9 @@
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const { jwtSecret } = require('../Utils/config');
-const ConflictError = require('../middleware/handleErrors');
-const NotFoundError = require('../middleware/handleErrors');
-const UnauthorizedError = require('../middleware/handleErrors');
-const ServerError = require('../middleware/handleErrors');
 const logger = require('../middleware/logger');
+const { ConflictError, NotFoundError, UnauthorizedError, ServerError } = require('../middleware/handleErrors')
 
 exports.registerUser = async (req, res, next) => {
   try {
