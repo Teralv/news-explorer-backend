@@ -66,4 +66,4 @@ app.use(errors());
 // General error handling middleware
 app.use(errorHandler);
 
-export default app;
+module.exports = app;
