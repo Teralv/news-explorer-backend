@@ -45,7 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', routes);
+app.use('', routes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
