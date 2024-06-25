@@ -38,17 +38,17 @@ const validateLogin = celebrate({
 
 const validateArticleCreation = celebrate({
   [Segments.BODY]: Joi.object().keys({
-    author: Joi.allow(null).required(),
-    content: Joi.string().required(),
+    author: Joi.allow(null),
+    content: Joi.string(),
     description: Joi.string().required(),
-    publishedAt: Joi.string().isoDate(),
-    searchKeyword: Joi.string(),
+    publishedAt: Joi.string().isoDate().required(),
+    searchKeyword: Joi.string().required(),
     source: Joi.object({
       id: Joi.allow(null), // Allow null values
       name: Joi.string().required(),
     }),
     title: Joi.string().required(),
-    url: Joi.string().uri(),
+    url: Joi.string().uri().required(),
     urlToImage: Joi.string().uri(),
   }),
 });
