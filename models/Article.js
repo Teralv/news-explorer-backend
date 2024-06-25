@@ -19,8 +19,8 @@ const articleSchema = new mongoose.Schema({
     required: [true, 'article date is required']
   },
   source: {
-    type: String,
-    required: [true, 'article source is required']
+    id: { type: String, required: false },
+    name: { type: String, required: true },
   },
   link: {
     type: String,

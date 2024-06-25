@@ -41,7 +41,10 @@ const validateArticleCreation = celebrate({
     title: Joi.string().required(),
     text: Joi.string().required(),
     date: Joi.date().raw().required(),
-    source: Joi.string().required(),
+    source: Joi.object({
+      id: Joi.allow(null), // Allow null values
+      name: Joi.string().required(),
+    }),
     link: Joi.string().required().uri(),
     image: Joi.string().required().uri(),
   }),
