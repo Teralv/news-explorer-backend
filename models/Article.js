@@ -2,40 +2,32 @@
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
-  author: {
+  keyword: {
     type: String,
-    require: false
-  },
-  searchKeyword: {
-    type: String,
-    required: false
-  },
-  content: {
-    type: String,
-    required: false
-  },
-  description: {
-    type: String,
-    required: false
-  },
-  publishedAt: {
-    type: String,
-    required: false
+    require: [true, 'article keyword is required']
   },
   title: {
     type: String,
-    require: true
+    require: [true, 'article title is required']
+  },
+  text: {
+    type: String,
+    required: [true, 'article text is required']
+  },
+  date: {
+    type: String,
+    required: [true, 'article date is required']
   },
   source: {
-    id: { type: String, required: false },
-    name: { type: String, required: true },
+    type: String,
+    required: [true, 'article source is required']
   },
-  url: {
+  link: {
     type: String,
     required: true,
     match: [/^http[s]?:\/\/.*/, 'Introduzca una URL válida'],
   },
-  urlToImage: {
+  image: {
     type: String,
     required: false,
     match: [/^http[s]?:\/\/.*/, 'Introduzca una URL válida'],

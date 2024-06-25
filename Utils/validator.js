@@ -1,4 +1,3 @@
-
 const { celebrate, Joi, Segments } = require('celebrate');
 const validator = require('validator');
 
@@ -37,19 +36,14 @@ const validateLogin = celebrate({
 });
 
 const validateArticleCreation = celebrate({
-  [Segments.BODY]: Joi.object().keys({
-    author: Joi.allow(null),
-    content: Joi.string(),
-    description: Joi.string(),
-    publishedAt: Joi.string().isoDate(),
-    searchKeyword: Joi.string(),
-    source: Joi.object({
-      id: Joi.allow(null), // Allow null values
-      name: Joi.string().required(),
-    }),
+  body: Joi.object().keys({
+    keyword: Joi.string().required(),
     title: Joi.string().required(),
-    url: Joi.string().uri().required(),
-    urlToImage: Joi.string().uri(),
+    text: Joi.string().required(),
+    date: Joi.date().raw().required(),
+    source: Joi.string().required(),
+    link: Joi.string().required().uri(),
+    image: Joi.string().required().uri(),
   }),
 });
 
