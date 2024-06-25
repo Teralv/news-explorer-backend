@@ -40,7 +40,7 @@ const validateArticleCreation = celebrate({
   [Segments.BODY]: Joi.object().keys({
     author: Joi.allow(null),
     content: Joi.string(),
-    description: Joi.string().required(),
+    description: Joi.string(),
     publishedAt: Joi.string().isoDate().required(),
     searchKeyword: Joi.string().required(),
     source: Joi.object({
