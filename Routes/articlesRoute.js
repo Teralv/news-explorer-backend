@@ -15,7 +15,7 @@ router.get(
 
 // Create a new article
 router.post(
-  '/',
+  '/articles',
   auth,
   validateArticleCreation,
   articlesController.createArticle
