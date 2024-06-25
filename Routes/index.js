@@ -9,6 +9,6 @@ const articleRoutes = require('./articlesRoute');
 
 // Setup route endpoints
 router.use('/', userRoutes); // Assuming user routes include both protected and public routes
-router.use('/', articleRoutes); // Protected article routes
+router.use('/articles', articleRoutes); // Protected article routes
 
 module.exports = router;

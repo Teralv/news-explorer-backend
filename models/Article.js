@@ -1,5 +1,5 @@
 /* eslint-disable */
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
   author: {
@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    required: true
+    required: false
   },
   description: {
     type: String,
@@ -24,7 +24,7 @@ const articleSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    require: false
+    require: true
   },
   source: {
     id: { type: String, required: false },
@@ -38,11 +38,11 @@ const articleSchema = new mongoose.Schema({
   urlToImage: {
     type: String,
     required: true,
-    match: [/(https?:\/\/.*\.(?:png|jpg))/i, 'Introduzca una URL válida'],
+    match: [/^http[s]?:\/\/.*/, 'Introduzca una URL válida'],
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     select: false,
   },
 });

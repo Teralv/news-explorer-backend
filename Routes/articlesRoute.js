@@ -1,7 +1,6 @@
-/* eslint-disable */
 const express = require('express');
-
 const router = express.Router();
+
 const auth = require('../middleware/auth');
 const articlesController = require('../controllers/articlesController');
 const { validateArticleCreation, validateArticleDeletion} = require('../Utils/validator');
@@ -15,7 +14,7 @@ router.get(
 
 // Create a new article
 router.post(
-  '/articles',
+  '/',
   auth,
   validateArticleCreation,
   articlesController.createArticle
