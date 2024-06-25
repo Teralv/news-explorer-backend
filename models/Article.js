@@ -8,7 +8,7 @@ const articleSchema = new mongoose.Schema({
   },
   searchKeyword: {
     type: String,
-    required: true
+    required: false
   },
   content: {
     type: String,
@@ -16,11 +16,11 @@ const articleSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   publishedAt: {
     type: String,
-    required: true
+    required: false
   },
   title: {
     type: String,
@@ -37,7 +37,7 @@ const articleSchema = new mongoose.Schema({
   },
   urlToImage: {
     type: String,
-    required: true,
+    required: false,
     match: [/^http[s]?:\/\/.*/, 'Introduzca una URL válida'],
   },
   owner: {
