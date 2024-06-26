@@ -38,7 +38,7 @@ exports.getArticlesByUser = async (req, res, next) => {
 exports.createArticle = async (req, res, next) => {
   try {
     const { keyword, title, text, date, source, link, image } = req.body;
-    Article.save({
+    Article.create({
       keyword,
       title,
       text,
