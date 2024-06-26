@@ -48,7 +48,7 @@ exports.createArticle = async (req, res, next) => {
       image,
       owner: req.user._id,
     })
-      .then((article) => res.send(article))
+      .then((article) => res.json(article))
   } catch (err) {
     if (err.name === 'ValidationError') {
       return res.status(400).json({
