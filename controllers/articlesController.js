@@ -16,11 +16,20 @@ exports.getArticlesByUser = async (req, res, next) => {
   }
 };
 
-/*exports.createArticle = async (req, res, next) => {
+exports.createArticle = async (req, res, next) => {
   try {
-    const newArticle = new Article({ ...req.body, owner: req.user.id });
-    const article = await newArticle.save();
-    return res.status(201).json(article);
+    const { keyword, title, text, date, source, link, image } = req.body;
+    Article.create({
+      keyword,
+      title,
+      text,
+      date,
+      source,
+      link,
+      image,
+      owner: req.user.id,
+    })
+      .then((article) => res.send(article))
   } catch (err) {
     if (err.name === 'ValidationError') {
       return res.status(400).json({
@@ -33,33 +42,6 @@ exports.getArticlesByUser = async (req, res, next) => {
     );
     return next(err);
   }
-};*/
-
-exports.createArticle = async (req, res, next) => {
-  const { keyword, title, text, date, source, link, image } = req.body;
-  Article.create({
-    keyword,
-    title,
-    text,
-    date,
-    source,
-    link,
-    image,
-    owner: req.user.id,
-  })
-    .then((article) => res.send(article))
-    .catch ((err) => {
-      if (err.name === 'ValidationError') {
-        return res.status(400).json({
-          error: 'Validation Error',
-          message: err.message,
-        });
-      }
-      logger.error(
-        `Error creating article for user ${req.user.id}: ${err.message}`,
-      );
-      return next(err);
-    })
 };
 
 exports.deleteArticle = async (req, res, next) => {
