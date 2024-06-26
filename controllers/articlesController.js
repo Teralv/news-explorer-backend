@@ -36,7 +36,6 @@ exports.getArticlesByUser = async (req, res, next) => {
 };*/
 
 exports.createArticle = async (req, res, next) => {
-
   const { keyword, title, text, date, source, link, image } = req.body;
   Article.create({
     keyword,
@@ -46,7 +45,7 @@ exports.createArticle = async (req, res, next) => {
     source,
     link,
     image,
-    owner: req.user._id,
+    owner: req.user.id,
   })
     .then((article) => res.send(article))
     .catch ((err) => {
