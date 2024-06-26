@@ -38,7 +38,7 @@ exports.getArticlesByUser = async (req, res, next) => {
 exports.createArticle = async (req, res, next) => {
   try {
     const { keyword, title, text, date, source, link, image } = req.body;
-    Article.create({
+    Article.svae({
       keyword,
       title,
       text,
@@ -48,7 +48,7 @@ exports.createArticle = async (req, res, next) => {
       image,
       owner: req.user._id,
     })
-      .then((article) => res.send({data: article}))
+      .then((article) => res.send(article))
   } catch (err) {
     if (err.name === 'ValidationError') {
       return res.status(400).json({
