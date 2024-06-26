@@ -18,8 +18,8 @@ const createUserValidator = celebrate({
         'any.required': 'Email is required',
         'any.invalid': 'Invalid email format',
       }),
-    password: Joi.string().min(6).required().messages({
-      'string.min': 'Password must be at least 6 characters long',
+    password: Joi.string().min(7).required().messages({
+      'string.min': 'Password must be at least 7 characters long',
       'any.required': 'Password is required',
     }),
     name: Joi.string().required().messages({
